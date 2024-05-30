@@ -5,18 +5,19 @@ import "./App.css";
 
 function App() {
   const [like, setLike] = useState(false);
+  
+  const 클릭했을때_실행할함수 = () => setLike((prev) => !prev);
 
-  const like반전 = () => setLike((현재like) => !현재like);
-
-  let thumbs = <button onClick={like반전}>👍</button>;
-  if (like === true) {
-    thumbs = <button onClick={like반전}>👋</button>;
-  }
+  const 좋아요또는취소버튼 = like? (
+    <button onClick={클릭했을때_실행할함수}>👋</button>
+  ) : (
+    <button onClick={클릭했을때_실행할함수}>👍</button>
+  );
 
   return (
     <div>
-      <h1>좋아요 버튼</h1>
-      {thumbs}
+      <h1>👍/👎</h1>
+      {좋아요또는취소버튼}
     </div>
   );
 }
